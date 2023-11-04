@@ -19,7 +19,7 @@ const PersonalInformation = () => {
   return (
     <Form
       labelCol={{
-        span: 4,
+        span: 6,
       }}
       wrapperCol={{
         span: 14,
@@ -30,7 +30,7 @@ const PersonalInformation = () => {
       }}
       size="large"
       style={{
-        maxWidth: 600,
+        maxWidth: 1000,
         padding: "20px 24px 24px 24px",
       }}
     >
@@ -39,53 +39,22 @@ const PersonalInformation = () => {
         <Input />
       </Form.Item>
       <Form.Item label="Ngày sinh">
-        <Select>
-          <Select.Option value="demo">Ngày sinh</Select.Option>
-        </Select>
+        <DatePicker style={{ width: "100%" }} />
       </Form.Item>
-      <Form.Item label="TreeSelect">
-        <TreeSelect
-          treeData={[
-            {
-              title: "Light",
-              value: "light",
-              children: [
-                {
-                  title: "Bamboo",
-                  value: "bamboo",
-                },
-              ],
-            },
-          ]}
-        />
+      <Form.Item label="Email">
+        <Input />
       </Form.Item>
-      <Form.Item label="Cascader">
-        <Cascader
-          options={[
-            {
-              value: "zhejiang",
-              label: "Zhejiang",
-              children: [
-                {
-                  value: "hangzhou",
-                  label: "Hangzhou",
-                },
-              ],
-            },
-          ]}
-        />
+      <Form.Item label="Số điện thoại">
+        <Input />
       </Form.Item>
-      <Form.Item label="DatePicker">
-        <DatePicker />
+      <Form.Item label="Căn cước công dân">
+        <Input />
       </Form.Item>
-      <Form.Item label="InputNumber">
-        <InputNumber />
+      <Form.Item label="Địa chỉ thường trú">
+        <Input />
       </Form.Item>
-      <Form.Item label="Switch" valuePropName="checked">
-        <Switch />
-      </Form.Item>
-      <Form.Item label="Button">
-        <Button>Button</Button>
+      <Form.Item label="" className="update-btn-container">
+        <Button type="primary">Lưu thay đổi</Button>
       </Form.Item>
     </Form>
   );
