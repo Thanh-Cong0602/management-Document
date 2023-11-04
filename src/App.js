@@ -1,13 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
-import PersonalInformation from "./Component/Profile/Profile";
+import Register from "./Component/RegisterPage/Register";
 
 function App() {
-  return (
-    <div className="App">
-      <PersonalInformation />
-    </div>
-  );
+  return <Register />;
 }
 
 export default App;
