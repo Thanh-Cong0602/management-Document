@@ -1,13 +1,14 @@
-import Home from "../pages/Home"
+import Home from "../pages/Home";
 
 export const PulicRoutes = [
-    {
-        path: '/',
-        element: <Home />
-    }
-
-]
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {},
+];
 export const PrivateRoutes = [
-    // for private function
-    
-]
+  // for private function
+];
+
+export default PulicRoutes;

@@ -1,23 +1,12 @@
-<<<<<<< HEAD
-import { DefaultLayout } from './components/layout';
-import Store from './components/Context/Store';
-
-function App() {
-    return (
-        <div className="App">
-            <Store>
-                <DefaultLayout />
-            </Store>
-        </div>
-    );
-=======
-import logo from "./logo.svg";
-import "./App.css";
+import { DefaultLayout } from "./components/layout";
+import Store from "./components/Context/Store";
 import Register from "./Component/RegisterPage/Register";
-
+// import Login from "./Component/Login";
+import Header from "./components/layout/default/Header";
+import Footer from "./components/layout/default/Footer";
+import { Route, Routes } from "react-router-dom";
 function App() {
-  return <Register />;
->>>>>>> 0a98499664d5a5f09df26a0c943f183128f014fe
+  return <div className="App"></div>;
 }
 
 export default App;
