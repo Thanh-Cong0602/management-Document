@@ -1,0 +1,3 @@
+{
+    "unittestbot.paths.sourceDirectories": ".,public,src,src/Component,src/Component/RegisterPage"
+}
