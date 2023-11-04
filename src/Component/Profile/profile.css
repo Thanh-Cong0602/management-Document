@@ -1,0 +1,15 @@
+.profile-container {
+    padding: 24px;
+    padding-top: 12px;
+}
+
+.profile-title {
+    font-weight: bold;
+    font-size: large;
+}
+
+.update-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
