@@ -1,16 +1,5 @@
-import React, { useState } from "react";
-import {
-  AutoComplete,
-  Button,
-  Cascader,
-  Checkbox,
-  Col,
-  Form,
-  Input,
-  InputNumber,
-  Row,
-  Select,
-} from "antd";
+import React from "react";
+import { Button, Checkbox, Form, Input, Select, Typography } from "antd";
 const { Option } = Select;
 const formItemLayout = {
   labelCol: {
@@ -72,10 +61,20 @@ const Register = () => {
         margin: "auto",
         marginTop: "7vh",
         border: "2px solid black",
-        padding: "50px",
+        padding: " 0 50px",
         borderRadius: "10px",
       }}
       scrollToFirstError>
+      <Typography
+        style={{
+          display: "block",
+          textAlign: "center",
+          fontSize: "70px",
+          fontWeight: "700",
+          marginBottom: "2%",
+        }}>
+        Register
+      </Typography>
       <Form.Item
         name="email"
         label="E-mail"
