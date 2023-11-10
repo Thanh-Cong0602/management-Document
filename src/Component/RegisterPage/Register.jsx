@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   AutoComplete,
   Button,
@@ -52,11 +53,18 @@ const Register = () => {
       <Select
         style={{
           width: 70,
-        }}>
+        }}
+      >
         <Option value="84">+84</Option>
       </Select>
     </Form.Item>
   );
+
+  const [data, setData] = useState({});
+
+  const handleRegister = () => {
+    setData({ ...data, status: true, dob: "26/02/2002" });
+  };
   return (
     <Form
       {...formItemLayout}
@@ -75,7 +83,8 @@ const Register = () => {
         padding: "50px",
         borderRadius: "10px",
       }}
-      scrollToFirstError>
+      scrollToFirstError
+    >
       <Form.Item
         name="email"
         label="E-mail"
@@ -88,8 +97,12 @@ const Register = () => {
             required: true,
             message: "Please input your E-mail!",
           },
-        ]}>
-        <Input />
+        ]}
+      >
+        <Input
+          value={data.email}
+          onChange={(e) => setData({ ...data, email: e.target.value })}
+        />
       </Form.Item>
 
       <Form.Item
@@ -101,8 +114,12 @@ const Register = () => {
             message: "Please input your password!",
           },
         ]}
-        hasFeedback>
-        <Input.Password />
+        hasFeedback
+      >
+        <Input.Password
+          value={data.password}
+          onChange={(e) => setData({ ...data, password: e.target.value })}
+        />
       </Form.Item>
 
       <Form.Item
@@ -125,7 +142,8 @@ const Register = () => {
               );
             },
           }),
-        ]}>
+        ]}
+      >
         <Input.Password />
       </Form.Item>
 
@@ -139,8 +157,12 @@ const Register = () => {
             message: "Please input your nickname!",
             whitespace: true,
           },
-        ]}>
-        <Input />
+        ]}
+      >
+        <Input
+          value={data.name}
+          onChange={(e) => setData({ ...data, name: e.target.value })}
+        />
       </Form.Item>
 
       <Form.Item
@@ -151,12 +173,15 @@ const Register = () => {
             required: true,
             message: "Please input your phone number!",
           },
-        ]}>
+        ]}
+      >
         <Input
           addonBefore={prefixSelector}
           style={{
             width: "100%",
           }}
+          value={data.phone}
+          onChange={(e) => setData({ ...data, phone: e.target.value })}
         />
       </Form.Item>
       <Form.Item
@@ -167,8 +192,12 @@ const Register = () => {
             required: true,
             message: "Please select gender!",
           },
-        ]}>
-        <Select placeholder="select your gender">
+        ]}
+      >
+        <Select
+          placeholder="select your gender"
+          onChange={(value) => setData({ ...data, gender: value === "male" })}
+        >
           <Option value="male">Male</Option>
           <Option value="female">Female</Option>
           <Option value="other">Other</Option>
@@ -185,16 +214,29 @@ const Register = () => {
                 : Promise.reject(new Error("Should accept agreement")),
           },
         ]}
-        {...tailFormItemLayout}>
+        {...tailFormItemLayout}
+      >
         <Checkbox>
           I have read the <a href="">agreement</a>
         </Checkbox>
       </Form.Item>
       <Form.Item {...tailFormItemLayout}>
-        <Button type="primary" htmlType="submit">
+        <Button
+          type="primary"
+          htmlType="submit"
+          onClick={() => handleRegister()}
+        >
           Register
         </Button>
       </Form.Item>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        Have an account?&nbsp; <Link to="/login"> Sign in </Link>
+      </div>
     </Form>
   );
 };
