@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  let navigate = useNavigate();
+ let navigate = useNavigate();
   const [user, setUser] = useState();
   useEffect(() => {
     var user = window.localStorage.getItem("email");
@@ -16,9 +16,9 @@ const Home = () => {
   }, []);
   return (
     <Container>
-      {/* {!user && navigate(`/login`)} */}
+   
       <Row style={{ textAlign: "center" }}>
-        <strong>WELCOME TO STUDENT BK MANAGEMENT!!!</strong>
+        <strong>WELCOME TO DOCUMENT MANAGEMENT!!!</strong>
       </Row>
       <Row style={{ margin: "50px auto" }}>
         <Col md="6">
@@ -30,7 +30,7 @@ const Home = () => {
                   to="/students"
                   style={{ color: "white", textDecorationLine: "none" }}
                 >
-                  Manage students
+                  Manage Users
                 </Link>
               </Button>
             </Card.Body>
@@ -45,7 +45,7 @@ const Home = () => {
                   to="/courses"
                   style={{ color: "white", textDecorationLine: "none" }}
                 >
-                  Manage courses
+                  Manage Documents
                 </Link>
               </Button>
             </Card.Body>

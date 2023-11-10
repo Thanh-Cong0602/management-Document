@@ -76,12 +76,12 @@ const Header = () => {
           </div>
         </Container>
       </Navbar>
-      {/* <Routes>
+      { <Routes>
         {PulicRoutes.map((route, i) => {
           let Page = route.element;
           return <Route path={route.path} element={Page} key={i} />;
         })}
-      </Routes> */}
+      </Routes>}
     </>
   );
 };
