@@ -2,13 +2,13 @@ import React from 'react';
 import { Table } from 'antd';
 const columns = [
   {
-    title: 'Name',
+    title: 'Tên',
     dataIndex: 'name',
     key: 'name',
     render: (text) => <a>{text}</a>,
   },
   {
-    title: 'Version',
+    title: 'VPhiên bản',
     dataIndex: 'version',
     key: 'version',
   }
