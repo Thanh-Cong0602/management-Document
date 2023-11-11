@@ -16,7 +16,7 @@ import UserContext from "../../Context";
 import { Link } from "react-router-dom";
 
 import DocumentList from "../../Component/DocumentList/documentList";
-
+import Upload from "../../Component/Upload/Upload";
 const { Header, Sider, Content } = Layout;
 const HomePageUser = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -155,7 +155,7 @@ const HomePageUser = () => {
             background: colorBgContainer,
           }}
         >
-          <DocumentList />
+          <Upload />
         </Content>
       </Layout>
     </Layout>

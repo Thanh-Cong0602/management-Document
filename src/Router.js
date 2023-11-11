@@ -11,7 +11,7 @@ import Register from "./Component/RegisterPage/Register";
 import Home from "./pages/Home";
 import HomePage from "./components/HomePage/HomePage";
 import DocumentList from "./Component/DocumentList/documentList";
-
+import Upload from "./Component/Upload/Upload";
 import HomePageUser from "./components/HomePageUser/HomePageUser";
 const Router = () => {
   const router = createBrowserRouter([
@@ -26,6 +26,10 @@ const Router = () => {
     {
       path: "/user/homepage",
       element: <HomePageUser />,
+    },
+    {
+      path: "/uploadfile",
+      element: <Upload />,
     },
     {
       path: "/register",
