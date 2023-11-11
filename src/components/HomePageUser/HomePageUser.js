@@ -1,7 +1,13 @@
 /** @format */
 
 import React, { useState, useContext } from "react";
-import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 import { IconContext } from "react-icons";
 import { FaUserCircle } from "react-icons/fa";
@@ -9,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import UserContext from "../../Context";
 import { Link } from "react-router-dom";
 
-import UserList from "../ManagerUser/ManagerUser";
+import DocumentList from "../../Component/DocumentList/documentList";
 
 const { Header, Sider, Content } = Layout;
 const HomePageUser = () => {
@@ -149,7 +155,7 @@ const HomePageUser = () => {
             background: colorBgContainer,
           }}
         >
-          <UserList />
+          <DocumentList />
         </Content>
       </Layout>
     </Layout>
