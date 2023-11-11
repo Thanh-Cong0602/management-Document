@@ -18,10 +18,12 @@ import { Link } from "react-router-dom";
 import DocumentList from "../../Component/DocumentList/documentList";
 import Upload from "../../Component/Upload/Upload";
 const { Header, Sider, Content } = Layout;
+// import axios from "axios";
 const HomePageUser = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [page, setPage] = useState(1);
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -34,6 +36,7 @@ const HomePageUser = () => {
       navigate("/login");
     }
   }, []);
+
 
   return (
     <Layout>
@@ -154,7 +157,7 @@ const HomePageUser = () => {
           }}
         >
           {page === 1 && <DocumentList />}
-          {page === 2 && <Upload />}
+          {page === 2 && <Upload setPage = {setPage}/>}
         </Content>
       </Layout>
     </Layout>

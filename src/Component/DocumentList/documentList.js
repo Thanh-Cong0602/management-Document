@@ -1,44 +1,42 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Table } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, message, Upload } from "antd";
+import axios from "axios";
 const columns = [
+    {
+        title: "STT",
+        dataIndex: "index",
+        key: "index",
+
+    },
   {
     title: "Tên",
     dataIndex: "name",
     key: "name",
-    render: (text) => <a>{text}</a>,
+
   },
   {
-    title: "Phiên bản",
-    dataIndex: "version",
-    key: "version",
-  },
-];
-const data = [
-  {
-    key: 1,
-    name: "aaaaaaa",
-    version: 1.0,
-    description: "aaaaaaaaaaaaa",
+    title: "Mô tả",
+    dataIndex: "description",
+    key: "description",
   },
   {
-    key: 2,
-    name: "bbbbbbbb",
-    version: 1.3,
-    description: "bbbbbbbbbbb",
+    title: "URL",
+    dataIndex: "filename",
+    key: "filename",
+    render: (text, record) => <a href={record.url} target="__blank">{text}</a>,
   },
   {
-    key: 3,
-    name: "ccccccc",
-    version: 1.5,
-    description: "ccccccccccc",
-  },
-  {
-    key: 4,
-    name: "dddddddd",
-    version: 2.0,
-    description: "dddddddddd",
+    title: "Action",
+    dataIndex: "action",
+    key: "action",
+    render: (text, record) => <div type="button" style ={{color: "red"}}
+        onClick={() => {
+      axios.delete(`http://localhost/document/${record.id}`).then(() => {
+        window.location.reload()
+      });
+    }}>Xóa</div>
   },
 ];
 
@@ -60,25 +58,29 @@ const props = {
   },
 };
 
-const DocumentList = () => (
-  <div>
-    <Table
-      columns={columns}
-      expandable={{
-        expandedRowRender: (record) => (
-          <p
-            style={{
-              margin: 0,
-            }}
-          >
-            {record.description}
-          </p>
-        ),
-      }}
-      bordered
-      title={() => "Danh sách"}
-      dataSource={data}
-    />
-  </div>
-);
+const DocumentList = () => {
+  const  [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost/document").then((res)=> {
+      const resData = res.data.map((item, key) => {
+        return {
+          ...item,
+          index: key+1
+        }
+      })
+      setData(resData);
+      console.log(resData)
+    })
+  }, []);
+  return (
+      <div>
+        <Table
+            columns={columns}
+            bordered
+            title={() => "Danh sách"}
+            dataSource={data}
+        />
+      </div>
+  );
+}
 export default DocumentList;

@@ -1,10 +1,11 @@
 import React, { Fragment, useState } from "react";
+
 import "./Form.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
-function Upload() {
+function Upload({setPage}) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState();
@@ -28,6 +29,8 @@ function Upload() {
     })
       .then((response) => response.json())
       .then((result) => {
+        // navigate("/user/homepage");
+        setPage(1);
         console.log("Success:", result);
       })
       .catch((error) => {
@@ -64,9 +67,9 @@ function Upload() {
             name="file"
           />{" "}
           <br />
-          <button className="btn btn-primary" onClick={handleSubmission}>
+          <div className="btn btn-primary" onClick={handleSubmission} >
             Upload
-          </button>
+          </div>
         </form>
       </div>
     </Fragment>

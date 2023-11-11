@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Table } from "antd";
+import axios from "axios";
 const columns = [
   {
     title: "Full Name",
@@ -29,43 +30,52 @@ const columns = [
   },
   {
     title: "Status",
-    key: "status",
+    key: "isActive",
     fixed: "right",
     width: 100,
-    dataIndex: "status",
-    render: (_, { status }) => (
-      <>{status ? <p>active account</p> : <p>banned account</p>}</>
+    dataIndex: "isActive",
+    render: (_, { isActive }) => (
+      <>{isActive ? <p>active account</p> : <p>banned account</p>}</>
     ),
   },
-];
-const data = [
   {
-    email: "tuankiet091002@gmail.com",
-    name: "Tuan Kiet",
-    phone: "0963987949",
-    dob: "26/02/2002",
-    gender: true, // male or female
-    status: true, // active account or banned account
-  },
-  {
-    email: "tuankiet091002@gmail.com",
-    name: "Tuan Kiet",
-    phone: "0963987949",
-    dob: "26/02/2002",
-    gender: false, // male or female
-    status: false, // active account or banned account
-  },
+    title: "Role",
+    key: "role",
+    fixed: "right",
+    width: 100,
+    dataIndex: "role",
+    render: (_, { role }) => (
+        <>{role.role == 'admin' ? <p>ADMIN</p> : <p>USER</p>}</>
+    ),
+  }
 ];
 
-const UserList = () => (
-  <Table
-    columns={columns}
-    dataSource={data}
-    scroll={{
-      x: 1500,
-      y: 300,
-    }}
-  />
-);
+const UserList = () => {
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost/user").then((res)=> {
+      const Data = res.data.content.map((item, key) => {
+        return {
+          ...item,
+          index: key+1
+        }
+      })
+      setData(Data);
+      console.log(Data)
+    })
+  }, []);
+
+  return (
+      <Table
+          columns={columns}
+          dataSource={data}
+          scroll={{
+            x: 1500,
+            y: 300,
+          }}
+      />
+  )
+};
 
 export default UserList;
