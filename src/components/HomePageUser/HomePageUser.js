@@ -21,6 +21,7 @@ const { Header, Sider, Content } = Layout;
 const HomePageUser = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
+  const [page, setPage] = useState(1);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -47,16 +48,13 @@ const HomePageUser = () => {
               key: "1",
               icon: <VideoCameraOutlined />,
               label: "Xem tài liệu",
+              onClick: () => setPage(1),
             },
             {
               key: "2",
               icon: <VideoCameraOutlined />,
               label: "Upload tài liệu",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
+              onClick: () => setPage(2),
             },
           ]}
         />
@@ -155,7 +153,8 @@ const HomePageUser = () => {
             background: colorBgContainer,
           }}
         >
-          <Upload />
+          {page === 1 && <DocumentList />}
+          {page === 2 && <Upload />}
         </Content>
       </Layout>
     </Layout>

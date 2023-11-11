@@ -62,10 +62,6 @@ const props = {
 
 const DocumentList = () => (
   <div>
-    <Upload {...props}>
-      <Button icon={<UploadOutlined />}>Tải lên</Button>
-    </Upload>
-    <div style={{ height: "12px" }}></div>
     <Table
       columns={columns}
       expandable={{
