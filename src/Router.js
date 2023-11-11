@@ -10,7 +10,7 @@ import Login from "./Component/Login/login";
 import Register from "./Component/RegisterPage/Register";
 import Home from "./pages/Home";
 import HomePage from "./components/HomePage/HomePage";
-
+import HomePageUser from "./components/HomePageUser/HomePageUser";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -20,6 +20,10 @@ const Router = () => {
     {
       path: "/homepage",
       element: <HomePage />,
+    },
+    {
+      path: "/user/homepage",
+      element: <HomePageUser />,
     },
     {
       path: "/register",
