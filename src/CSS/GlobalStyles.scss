@@ -1,0 +1,27 @@
+@import url('normalize.css');
+
+:root{
+   --charcoal : #1f1f1f;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+.main-width {
+    width: 84% ;
+}
+
+footer {
+    background-color: var(--charcoal);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position:absolute;
+}
+
+@media screen and (min-width: 768px) {
+    .main-width {
+        width: 96%;
+    }
+}
