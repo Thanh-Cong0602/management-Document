@@ -8,7 +8,7 @@ const columns = [
     render: (text) => <a>{text}</a>,
   },
   {
-    title: 'VPhiên bản',
+    title: 'Phiên bản',
     dataIndex: 'version',
     key: 'version',
   }
