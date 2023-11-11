@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import HomePage from "./components/HomePage/HomePage";
 import DocumentList from "./Component/DocumentList/documentList";
 
+import HomePageUser from "./components/HomePageUser/HomePageUser";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const Router = () => {
     {
       path: "/homepage",
       element: <HomePage />,
+    },
+    {
+      path: "/user/homepage",
+      element: <HomePageUser />,
     },
     {
       path: "/register",

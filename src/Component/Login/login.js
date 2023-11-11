@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useContext } from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useNavigate, Link } from "react-router-dom";
@@ -11,9 +13,16 @@ const Login = () => {
   const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const onFinish = (values) => {
-    setUser({ name: "Kiet" });
-    console.log("Success:", values);
-    navigate("/homepage");
+    const res = { role: "user" };
+    if (res.role === "user") {
+      setUser({ role: "user" });
+      console.log("Success:", values);
+      navigate("/user/homepage");
+    } else {
+      setUser({ role: "admin" });
+      console.log("Success:", values);
+      navigate("/homepage");
+    }
   };
   return (
     <div

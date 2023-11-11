@@ -1,11 +1,7 @@
+/** @format */
+
 import React, { useState, useContext } from "react";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 import { IconContext } from "react-icons";
 import { FaUserCircle } from "react-icons/fa";
@@ -16,7 +12,7 @@ import { Link } from "react-router-dom";
 import UserList from "../ManagerUser/ManagerUser";
 
 const { Header, Sider, Content } = Layout;
-const HomePage = () => {
+const HomePageUser = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const {
@@ -43,13 +39,13 @@ const HomePage = () => {
           items={[
             {
               key: "1",
-              icon: <UserOutlined />,
-              label: "Quản lý tài khoản",
+              icon: <VideoCameraOutlined />,
+              label: "Xem tài liệu",
             },
             {
               key: "2",
               icon: <VideoCameraOutlined />,
-              label: "Quản lý tài liệu",
+              label: "Upload tài liệu",
             },
             {
               key: "3",
@@ -159,4 +155,4 @@ const HomePage = () => {
     </Layout>
   );
 };
-export default HomePage;
+export default HomePageUser;
