@@ -1,20 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import { UploadOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Button, message, Upload } from "antd";
 import axios from "axios";
-const columns = [
-    {
-        title: "STT",
-        dataIndex: "index",
-        key: "index",
 
-    },
+const columns = [
+  {
+    title: "STT",
+    dataIndex: "index",
+    key: "index",
+  },
   {
     title: "Tên",
     dataIndex: "name",
     key: "name",
-
   },
   {
     title: "Mô tả",
@@ -25,18 +24,29 @@ const columns = [
     title: "URL",
     dataIndex: "filename",
     key: "filename",
-    render: (text, record) => <a href={record.url} target="__blank">{text}</a>,
+    render: (text, record) => (
+      <a href={record.url} target="__blank">
+        {text}
+      </a>
+    ),
   },
   {
     title: "Action",
     dataIndex: "action",
     key: "action",
-    render: (text, record) => <div type="button" style ={{color: "red"}}
-        onClick={() => {
-      axios.delete(`http://localhost/document/${record.id}`).then(() => {
-        window.location.reload()
-      });
-    }}>Xóa</div>
+    render: (text, record) => (
+      <div
+        type="button"
+        style={{ color: "red" }}
+        // onClick={() => {
+        //   axios.delete(`http://localhost/document/${record.id}`).then(() => {
+        //     window.location.reload();
+        //   });
+        // }}
+      >
+        <DeleteOutlined />
+      </div>
+    ),
   },
 ];
 
@@ -59,28 +69,28 @@ const props = {
 };
 
 const DocumentList = () => {
-  const  [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost/document").then((res)=> {
+    axios.get("http://localhost/document").then((res) => {
       const resData = res.data.map((item, key) => {
         return {
           ...item,
-          index: key+1
-        }
-      })
+          index: key + 1,
+        };
+      });
       setData(resData);
-      console.log(resData)
-    })
+      console.log(resData);
+    });
   }, []);
   return (
-      <div>
-        <Table
-            columns={columns}
-            bordered
-            title={() => "Danh sách"}
-            dataSource={data}
-        />
-      </div>
+    <div>
+      <Table
+        columns={columns}
+        bordered
+        title={() => "Danh sách"}
+        dataSource={data}
+      />
+    </div>
   );
-}
+};
 export default DocumentList;
